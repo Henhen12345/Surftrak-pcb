@@ -17,29 +17,52 @@ Integrates all electronics except motor, batteries, camera, and UWB modules
 ## Repository Layout
 
 ```
+├── kicad/
+│   ├── generate_schematic.py    # Run this → surftrak_carrier.kicad_sch
+│   ├── generate_pcb.py          # Run this → surftrak_carrier.kicad_pcb
+│   ├── surftrak_carrier.kicad_sch   (generated)
+│   └── surftrak_carrier.kicad_pcb  (generated)
 ├── BOM/
 │   └── BOM.csv                  # Full BOM with LCSC part numbers
 ├── docs/
-│   ├── SCHEMATIC_DESIGN.md      # Schematic block descriptions and net list
-│   ├── PCB_LAYOUT_GUIDE.md      # Placement and routing guide
+│   ├── SCHEMATIC_DESIGN.md      # Pin-by-pin wiring reference for all ICs
+│   ├── PCB_LAYOUT_GUIDE.md      # Component placement and routing guide
 │   └── DESIGN_DECISIONS.md      # Design rationale and trade-offs
 ├── schematic/
-│   └── surftrak_schematic.json  # EasyEDA Standard schematic JSON
+│   └── surftrak_schematic.json  # EasyEDA Standard reference (fallback)
 ├── pcb/
-│   └── surftrak_pcb.json        # EasyEDA Standard PCB JSON
+│   └── surftrak_pcb.json        # EasyEDA Standard reference (fallback)
 └── gerber_guide/
-    └── EXPORT_INSTRUCTIONS.md   # How to export Gerbers for JLCPCB
+    └── EXPORT_INSTRUCTIONS.md   # Gerber + BOM + CPL export for JLCPCB
 ```
 
-## Quick Start
+## Quick Start — KiCad Workflow (Recommended)
 
-1. Import `schematic/surftrak_schematic.json` into EasyEDA Standard
-2. Review and verify all connections against `docs/SCHEMATIC_DESIGN.md`
-3. Import `pcb/surftrak_pcb.json` into EasyEDA Standard PCB editor
-4. Verify board outline is exactly 88mm circle
-5. Run DRC, resolve any errors
-6. Export Gerbers following `gerber_guide/EXPORT_INSTRUCTIONS.md`
-7. Upload to JLCPCB with BOM for PCBA service (exclude WS2812B per BOM notes)
+```bash
+cd kicad
+python3 generate_schematic.py   # → surftrak_carrier.kicad_sch
+python3 generate_pcb.py         # → surftrak_carrier.kicad_pcb
+```
+
+Then in KiCad 7 or 8:
+
+1. **Open** `kicad/surftrak_carrier.kicad_sch`
+2. **Tools → Update Symbols from Library** (resolves `Device:R`, `Connector_Generic:*`, etc.)
+3. **Wire up pins** in the schematic GUI — all global net labels are already placed; connect each component's pin stubs to the matching label. Use `docs/SCHEMATIC_DESIGN.md` as the pin-by-pin reference.
+4. **Run ERC** (Inspect → Electrical Rules Checker), fix all errors
+5. **Open** `kicad/surftrak_carrier.kicad_pcb` in KiCad PCB editor
+6. **Tools → Update PCB from Schematic** — footprints appear in a pile
+7. **Place footprints** per `docs/PCB_LAYOUT_GUIDE.md`
+8. **Route traces** (press `X` for interactive router)
+9. **Fill zones** (press `B`) — GND pours are pre-defined on both layers
+10. **Inspect → Design Rules Checker** — must pass with 0 errors
+11. **File → Fabrication Outputs → Gerbers + Drill Files + Component Placement**
+12. Upload to JLCPCB per `gerber_guide/EXPORT_INSTRUCTIONS.md`
+
+## EasyEDA Alternative
+
+The `schematic/` and `pcb/` folders contain EasyEDA Standard JSON files as a
+reference/fallback, but the KiCad files above are the primary design files.
 
 ## Power Architecture
 
