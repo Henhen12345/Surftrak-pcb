@@ -1,0 +1,57 @@
+Ref,Component,Value,Package,LCSC Part,Qty,PCBA,Notes
+U1,TP4056,TP4056-42-ESOP8,ESOP-8,C16254,1,Yes,USB-C charging IC
+U2,MP2307DN,5V Buck Converter,SOP-8,C14335,1,Yes,5V rail @ max 3A for Pi + LED + TMC logic
+U3,MP2307DN,3.3V Buck Converter,SOP-8,C14335,1,Yes,3.3V rail @ max 3A for UWB modules
+Q1,AO3401A,P-ch MOSFET,SOT-23,C15127,1,Yes,Main power switch (active-low gate from power button)
+D1,SS24,Schottky Diode,DO-214AA (SMB),C8598,1,Yes,5V buck converter output diode
+D2,SS24,Schottky Diode,DO-214AA (SMB),C8598,1,Yes,3.3V buck converter output diode
+D3,SS24,Schottky Diode,DO-214AA (SMB),C8598,1,Yes,Battery input protection / reverse polarity
+L1,CDRH2D18 4.7uH,4.7uH Inductor,SMD 2018,C1046,1,Yes,MP2307 #1 (5V) switching inductor
+L2,CDRH2D18 4.7uH,4.7uH Inductor,SMD 2018,C1046,1,Yes,MP2307 #2 (3.3V) switching inductor
+C1,100uF 16V,Electrolytic,SMD 6.3x5.8,C16643,1,Yes,MP2307 #1 input bulk cap
+C2,100uF 16V,Electrolytic,SMD 6.3x5.8,C16643,1,Yes,MP2307 #1 output bulk cap
+C3,10uF 10V,MLCC,0805,C15850,1,Yes,MP2307 #1 input ceramic cap
+C4,10uF 10V,MLCC,0805,C15850,1,Yes,MP2307 #1 output ceramic cap
+C5,100uF 16V,Electrolytic,SMD 6.3x5.8,C16643,1,Yes,MP2307 #2 input bulk cap
+C6,100uF 16V,Electrolytic,SMD 6.3x5.8,C16643,1,Yes,MP2307 #2 output bulk cap
+C7,10uF 10V,MLCC,0805,C15850,1,Yes,MP2307 #2 input ceramic cap
+C8,10uF 10V,MLCC,0805,C15850,1,Yes,MP2307 #2 output ceramic cap
+C9,100nF 50V,MLCC,0402,C14663,1,Yes,TP4056 VCC bypass
+C10,100nF 50V,MLCC,0402,C14663,1,Yes,TP4056 PROG filter
+C11,100nF 50V,MLCC,0402,C14663,1,Yes,3.3V rail bypass (near UWB J8)
+C12,100nF 50V,MLCC,0402,C14663,1,Yes,3.3V rail bypass (near UWB J9)
+C13,100nF 50V,MLCC,0402,C14663,1,Yes,Pi 3.3V bypass
+C14,100nF 50V,MLCC,0402,C14663,1,Yes,Pi 5V bypass
+C15,100nF 50V,MLCC,0402,C14663,1,Yes,TMC2209 VIO bypass
+C16,4.7uF 10V,MLCC,0805,C1779,1,Yes,TP4056 BAT pin filter
+R1,100k,MP2307 #1 FB top resistor,0402,C25741,1,Yes,"Vout = 0.925*(1+R1/R2) -> 5.02V (R1=100k, R2=22.6k)"
+R2,22.6k,MP2307 #1 FB bottom resistor,0402,C25900,1,Yes,Nearest standard: 22.1k (use 22.6k if available as E96)
+R3,68k,MP2307 #2 FB top resistor,0402,C25867,1,Yes,"Vout = 0.925*(1+R3/R4) -> ~3.22V (R3=68k, R4=27.4k)"
+R4,27.4k,MP2307 #2 FB bottom resistor,0402,C25902,1,Yes,E96 series value
+R5,1.2k,TP4056 RPROG,0402,C25752,1,Yes,Sets charge current: Ichg = 1000/1.2 = 833mA
+R6,10k,MOSFET gate pull-up,0402,C25744,1,Yes,Pulls Q1 gate HIGH (MOSFET off by default)
+R7,100k,Power button pull-down,0402,C25741,1,Yes,Holds gate node stable when button not pressed
+R8,100k,MOSFET gate limiter,0402,C25741,1,Yes,Series resistor limits gate charge current
+R9,10k,UART DIAG pull-up,0402,C25744,1,Yes,TMC2209 PDN_UART pull-up to 3.3V
+J1,Pi Zero 2W pads,Castellated 2x20,2.54mm pitch,-,1,N/A,Custom footprint — match Pi Zero 2W mechanical drawing exactly
+J2_A,TMC2209 Socket A,Pin Header 1x8,2.54mm,C2337,2,Yes,Two 1x8 sockets for TMC2209 module (one each side); verify module pinout
+J2_B,TMC2209 Socket B,Pin Header 1x8,2.54mm,C2337,-,-,See J2_A note
+J3,Battery JST,JST PH 2.0 2P,JST PH 2.0,C152168,1,Yes,BAT+ and BAT- from battery pack
+J4,USB-C JST,JST PH 2.0 2P,JST PH 2.0,C152168,1,Yes,VBUS + GND from panel-mount USB-C port
+J5,Power Button JST,JST PH 2.0 2P,JST PH 2.0,C152168,1,Yes,Momentary switch to gate circuit
+J6,WS2812B JST,JST PH 2.0 3P,JST PH 2.0,C9752,1,Yes,5V / Data (GPIO18) / GND to LED
+J7,Motor JST,JST PH 2.0 4P,JST PH 2.0,C9757,1,Yes,A1 A2 B1 B2 motor phases to NEMA17
+J8,UWB1 JST,JST PH 2.0 6P,JST PH 2.0,C9754,1,Yes,VCC/GND/MOSI/MISO/SCK/CS to DWM3000 #1
+J9,UWB2 JST,JST PH 2.0 6P,JST PH 2.0,C9754,1,Yes,VCC/GND/MOSI/MISO/SCK/CS to DWM3000 #2
+J10,Arducam CSI FPC,FPC 15P 1.0mm Bottom,FPC 15P 1.0mm,C77004,1,Yes,Standard Pi CSI-2 pinout; use adapter cable to Pi Zero mini-CSI
+LED1,WS2812B,WS2812B 5050,5050,C52917433,1,NO - HAND SOLDER,Exclude from JLCPCB PCBA; solder manually after board assembly
+
+NOTES:
+- JLCPCB PCBA: All SMD components EXCEPT LED1 (WS2812B) can be PCBA assembled
+- WS2812B (LED1) must be excluded from PCBA order and hand-soldered separately
+- J1 Pi pads are custom — no LCSC part; create footprint from Pi Zero 2W mechanical drawing
+- J2 headers: verify TMC2209 module pinout before finalizing footprint (Stepstick / BTT modules differ)
+- R2 (22.6k): closest standard E96 value; verify against MP2307 datasheet for exact Vout tuning
+- R4 (27.4k): E96 series value; results in Vout ~3.22V (acceptable for 3.3V rail)
+- All electrolytic caps: ensure SMD footprint fits within routing constraints
+- JST PH 2.0 connectors: use right-angle (horizontal) variant for edge-oriented cable routing
