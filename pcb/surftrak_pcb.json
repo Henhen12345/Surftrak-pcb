@@ -1,0 +1,149 @@
+{
+  "head": {
+    "editorVersion": "6.5.47",
+    "docType": "3",
+    "title": "SurfTrak Carrier PCB",
+    "description": "88mm circular carrier board. JLCPCB 2-layer 1.6mm FR4. Center=(100,80)mm. All coords in mm.",
+    "c_para": {},
+    "hasIdFlag": true
+  },
+  "canvas": "CA~1000~1000~#ffffff~yes~#CCCCCC~10~1000~1000~line~10~1~mm",
+
+  "layers": {
+    "1":  {"name": "TopCopper",        "color": "#FF0000", "visible": true},
+    "2":  {"name": "BottomCopper",     "color": "#0000FF", "visible": true},
+    "3":  {"name": "TopSilkscreen",    "color": "#FFFF00", "visible": true},
+    "4":  {"name": "BottomSilkscreen", "color": "#808000", "visible": true},
+    "5":  {"name": "TopPaste",         "color": "#808080", "visible": true},
+    "6":  {"name": "BottomPaste",      "color": "#808080", "visible": false},
+    "7":  {"name": "TopSolderMask",    "color": "#800080", "visible": true},
+    "8":  {"name": "BottomSolderMask", "color": "#400040", "visible": true},
+    "10": {"name": "BoardOutline",     "color": "#FFFF00", "visible": true},
+    "11": {"name": "MultiLayer",       "color": "#C0C0C0", "visible": true},
+    "12": {"name": "Document",         "color": "#FFFFFF", "visible": true}
+  },
+
+  "DRCRULE": {
+    "trackWidth":       0.2,
+    "powerWidth":       0.5,
+    "clearance":        0.2,
+    "viaHoleDiameter":  0.4,
+    "viaPadDiameter":   0.8,
+    "holeSize":         0.3,
+    "boardEdge":        0.3
+  },
+
+  "shape": [
+
+    "CIRCLE~100~80~44~0.2~none~gge1000~0~~10~none~none",
+
+    "TEXT~100~30~0~SurfTrak Carrier v1.0~1.5~gge1001~0~~3~none~none",
+    "TEXT~100~136~0~JLCPCB~1.0~gge1002~0~~3~none~none",
+
+    "TEXT~70~65~0~U1 TP4056~1.0~gge1010~0~~12~none~none",
+    "TEXT~70~68~0~ESOP-8 C16254~0.8~gge1011~0~~12~none~none",
+
+    "TEXT~58~72~0~U2 MP2307 5V~1.0~gge1012~0~~12~none~none",
+    "TEXT~58~75~0~SOP-8 C14335~0.8~gge1013~0~~12~none~none",
+
+    "TEXT~58~80~0~U3 MP2307 3V3~1.0~gge1014~0~~12~none~none",
+    "TEXT~58~83~0~SOP-8 C14335~0.8~gge1015~0~~12~none~none",
+
+    "TEXT~72~72~0~Q1 AO3401A~1.0~gge1016~0~~12~none~none",
+    "TEXT~72~75~0~SOT-23 C15127~0.8~gge1017~0~~12~none~none",
+
+    "TEXT~67~65~0~D3 SS24~0.8~gge1018~0~~12~none~none",
+
+    "TEXT~60~88~0~L1 4.7uH~1.0~gge1019~0~~12~none~none",
+    "TEXT~60~80~0~D1 SS24~0.8~gge1020~0~~12~none~none",
+
+    "TEXT~60~96~0~L2 4.7uH~1.0~gge1021~0~~12~none~none",
+    "TEXT~60~88~0~D2 SS24~0.8~gge1022~0~~12~none~none",
+
+    "TEXT~100~80~0~Pi Zero 2W~1.5~gge1030~0~~12~none~none",
+    "TEXT~100~84~0~J1 Castellated 2x20~1.0~gge1031~0~~12~none~none",
+    "TEXT~100~88~0~Custom footprint~0.8~gge1032~0~~12~none~none",
+    "TEXT~100~92~0~65mm x 30mm~0.8~gge1033~0~~12~none~none",
+
+    "TEXT~100~105~0~J2_A~1.0~gge1034~0~~12~none~none",
+    "TEXT~108~105~0~J2_B~1.0~gge1035~0~~12~none~none",
+    "TEXT~100~109~0~TMC2209 Headers~0.8~gge1036~0~~12~none~none",
+    "TEXT~100~113~0~2x 1x8 2.54mm~0.8~gge1037~0~~12~none~none",
+
+    "TEXT~115~105~0~J7 Motor~1.0~gge1038~0~~12~none~none",
+    "TEXT~115~109~0~JST PH2.0 4P~0.8~gge1039~0~~12~none~none",
+
+    "TEXT~130~65~0~J8 UWB1~1.0~gge1040~0~~12~none~none",
+    "TEXT~130~68~0~JST PH2.0 6P~0.8~gge1041~0~~12~none~none",
+
+    "TEXT~130~75~0~J9 UWB2~1.0~gge1042~0~~12~none~none",
+    "TEXT~130~78~0~JST PH2.0 6P~0.8~gge1043~0~~12~none~none",
+
+    "TEXT~130~88~0~J6 LED~1.0~gge1044~0~~12~none~none",
+    "TEXT~130~91~0~JST PH2.0 3P~0.8~gge1045~0~~12~none~none",
+
+    "TEXT~128~88~0~LED1 WS2812B~1.0~gge1046~0~~12~none~none",
+    "TEXT~128~91~0~HAND SOLDER~0.8~gge1047~0~~12~none~none",
+
+    "TEXT~130~98~0~J10 FPC~1.0~gge1048~0~~12~none~none",
+    "TEXT~130~101~0~15P 1.0mm~0.8~gge1049~0~~12~none~none",
+
+    "TEXT~72~52~0~J3 Battery~1.0~gge1050~0~~12~none~none",
+    "TEXT~72~55~0~JST PH2.0 2P~0.8~gge1051~0~~12~none~none",
+
+    "TEXT~82~52~0~J4 USB-C~1.0~gge1052~0~~12~none~none",
+    "TEXT~82~55~0~JST PH2.0 2P~0.8~gge1053~0~~12~none~none",
+
+    "TEXT~92~52~0~J5 Button~1.0~gge1054~0~~12~none~none",
+    "TEXT~92~55~0~JST PH2.0 2P~0.8~gge1055~0~~12~none~none",
+
+    "TEXT~118~52~0~J8 UWB1~0.8~gge1056~0~~12~none~none",
+    "TEXT~127~52~0~J9 UWB2~0.8~gge1057~0~~12~none~none",
+    "TEXT~100~125~0~J7 Motor~0.8~gge1058~0~~12~none~none",
+    "TEXT~82~125~0~J8 UWB1~0.8~gge1059~0~~12~none~none",
+    "TEXT~118~125~0~J9 UWB2~0.8~gge1060~0~~12~none~none",
+
+    "TRACK~0.5~1~BATT_SW~75~75~100~75~gge2000~0",
+    "TRACK~0.5~1~5V~85~90~120~90~gge2001~0",
+    "TRACK~0.5~1~3V3~85~96~120~96~gge2002~0",
+    "TRACK~0.5~1~BAT+~70~60~70~75~gge2003~0",
+
+    "TRACK~0.25~1~UART_TX~100~93~100~105~gge2010~0",
+    "TRACK~0.25~1~UART_RX~102~93~102~105~gge2011~0",
+    "TRACK~0.25~1~STEP~104~93~104~105~gge2012~0",
+    "TRACK~0.25~1~DIR~106~93~106~105~gge2013~0",
+    "TRACK~0.25~1~TMC_EN~108~93~108~105~gge2014~0",
+
+    "TRACK~0.25~1~SPI_MOSI~110~90~130~65~gge2020~0",
+    "TRACK~0.25~1~SPI_MISO~112~90~130~68~gge2021~0",
+    "TRACK~0.25~1~SPI_SCK~114~90~130~71~gge2022~0",
+    "TRACK~0.25~1~UWB1_CS~116~90~130~74~gge2023~0",
+    "TRACK~0.25~1~UWB2_CS~118~90~130~77~gge2024~0",
+
+    "TRACK~0.25~1~LED_DATA~110~93~128~88~gge2030~0",
+
+    "TRACK~0.8~1~MOT_A1~108~105~115~105~gge2040~0",
+    "TRACK~0.8~1~MOT_A2~108~107~115~107~gge2041~0",
+    "TRACK~0.8~1~MOT_B1~108~109~115~109~gge2042~0",
+    "TRACK~0.8~1~MOT_B2~108~111~115~111~gge2043~0",
+
+    "COPPERAREA~1~GND~100~80~TopCopper~1~solid~gge3000~0~M 56 80 A 44 44 0 1 1 144 80 A 44 44 0 1 1 56 80 Z",
+    "COPPERAREA~2~GND~100~80~BottomCopper~1~solid~gge3001~0~M 56 80 A 44 44 0 1 1 144 80 A 44 44 0 1 1 56 80 Z",
+
+    "VIA~100~80~0.8~0.4~gge4000~0~GND",
+    "VIA~80~70~0.8~0.4~gge4001~0~GND",
+    "VIA~120~70~0.8~0.4~gge4002~0~GND",
+    "VIA~80~90~0.8~0.4~gge4003~0~GND",
+    "VIA~120~90~0.8~0.4~gge4004~0~GND",
+    "VIA~80~100~0.8~0.4~gge4005~0~GND",
+    "VIA~120~100~0.8~0.4~gge4006~0~GND",
+    "VIA~100~112~0.8~0.4~gge4007~0~GND",
+    "VIA~68~80~0.8~0.4~gge4008~0~GND",
+    "VIA~132~80~0.8~0.4~gge4009~0~GND",
+    "VIA~75~60~0.8~0.4~gge4010~0~GND",
+    "VIA~125~60~0.8~0.4~gge4011~0~GND",
+    "VIA~75~110~0.8~0.4~gge4012~0~GND",
+    "VIA~125~110~0.8~0.4~gge4013~0~GND"
+
+  ]
+}
